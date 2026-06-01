@@ -59,9 +59,8 @@ makepkg -si
 ```
 
 ### Windows (Standalone)
-1. Download latest release zip
-2. Extract it
-3. Run iastfyp.exe
+1. Download latest release .exe
+2. Run iastfyp.exe
 
 ---
 
