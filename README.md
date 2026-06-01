@@ -67,7 +67,7 @@ makepkg -si
 
 ## Usage
 
-Launch the IaSTFyP
+Launch the IaSTFyP program, Either by running the .exe, running the .py or running the command "iastfyp"
 
 ---
 
