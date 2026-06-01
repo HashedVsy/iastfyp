@@ -77,8 +77,6 @@ Launch the IaSTFyP program, Either by running the .exe, running the .py or runni
 ---
 
 ## Notes
-Use responsibly.
-I do not guarantee you.
 It uses the GPL 3.0 License, switching from MIT License(1.1.0 and earlier used MIT. 1.1.1 and later will use GPL 3.0).
 
 ---
