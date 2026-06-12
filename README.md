@@ -1,85 +1,98 @@
-# Ironically a Stress Test For your PC
+# iastfyp
 
-## Introduction
-IaSTFyP(Ironically a Stress Test For your PC) is a lightweight, easy-to-use tool that can run on arch linux and windows (other distros arent tested, but the binary MAY work.)
+A configurable entity simulation tool designed for system performance
+testing, memory behavior analysis, and virtual machine workload
+evaluation.
 
+------------------------------------------------------------------------
 
-## Q & A/FAQ
+## Overview
 
-Some may ask, "why is it ironic?", "how is it a stress test?" or "can it run on a phone?"
-I can answer two of those questions,
+iastfyp generates large-scale simulated environments consisting of
+moving entities ("turties") to create controlled computational load. It
+is designed for experimentation, benchmarking, and compatibility testing
+across different systems and virtualized environments.
 
-1.
-Q: Why is it ironic?
-A: Because it was supposed to be a simple life simulator, but i realized it could be something GREATER.
+The simulation is intentionally flexible: users can scale entity count
+and simulation speed to explore system limits.
 
-2.
-Q: How is it a stress test?
-A: Because it can spawn 5000 "turties" at one time and all turties will move randomly and reproduce.(1. I know its not realistic, 2. DO NOT REFER IN THE CODE TURTIES AS TURTIES)
- 
-It is available as an AUR package for Arch Linux users, while Windows releases are distributed as standalone builds (no installation is required, but Updates are slower!).
+------------------------------------------------------------------------
 
----
+## Key Features
 
-## Table of Contents
-- Installation
-- Usage
-- Features
-- Dependencies
-- Configuration
-- Documentation
-- Examples
-- Troubleshooting
-- Contributors
-- License
+-   Configurable entity count and simulation speed
+-   Spatial grid optimization for efficient proximity calculations
+-   Scales from a few thousand to hundreds of thousands of entities
+-   Useful for CPU, memory, and VM behavior testing
+-   Cross-platform support (Windows, Linux)
 
----
+------------------------------------------------------------------------
 
-## Installation
+## How It Works
 
-###  Arch Linux (AUR)
-```bash
-yay -S iastfyp
-```
-yay specifically is not required, you may other AUR helpers instead of yay.
+iastfyp uses a spatial grid system to reduce interaction complexity
+between entities.
 
-or manual install:
+Instead of comparing every entity with every other entity (O(n²)),
+entities are grouped into grid cells so that only nearby interactions
+are evaluated. This significantly improves performance in large
+simulations.
 
-First, get the following Prerequisites:
-pyinstaller(pip or AUR version. Pip has not been tested yet.)
-python
-tkinter from the package tk
-
-then compile it:
-
-```bash
-git clone https://aur.archlinux.org/iastfyp.git
-cd iastfyp
-makepkg -si
-```
-
-### Windows (Standalone)
-1. Download latest release .exe
-2. Run iastfyp.exe
-
----
+------------------------------------------------------------------------
 
 ## Usage
 
-Launch the IaSTFyP program, Either by running the .exe, running the .py or running the command "iastfyp"
+Run the program:
 
----
+``` bash
+python iastfyp.py
+```
 
-## Features
-- Lightweight standalone Windows build
-- AUR support for Arch Linux
+Or execute the compiled binary (if available).
 
----
+------------------------------------------------------------------------
 
-## Notes
-It uses the GPL 3.0 License, switching from MIT License(1.1.0 and earlier used MIT. 1.1.1 and later will use GPL 3.0).
+## Configuration
 
----
+Typical configurable parameters:
+
+-   Entity count (e.g. 5,000 → 500,000+)
+-   Simulation speed multiplier
+-   Spawn density
+-   Interaction rules (if enabled in build)
+
+------------------------------------------------------------------------
+
+## Performance Notes
+
+Performance depends heavily on:
+
+-   CPU single-thread performance
+-   Memory bandwidth
+-   Entity count and speed multiplier
+
+Very high configurations may cause heavy system load but should remain
+stable due to the spatial grid system.
+
+------------------------------------------------------------------------
+
+## Warning
+
+Large simulations may significantly impact system responsiveness. Use
+high settings carefully, especially on virtual machines or low-power
+hardware.
+
+------------------------------------------------------------------------
+
+## Project Origin
+
+iastfyp originally began as a simple simulation experiment and evolved
+into a lightweight workload generation tool for system testing and
+exploration.
+
+------------------------------------------------------------------------
 
 ## License
-Check [LICENSE](LICENSE)
+
+The License has changed from MIT to GPL.
+ALL VERSIONS BEFORE v1.1.1 IS MIT. NOT GPL!
